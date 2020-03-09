@@ -10,7 +10,7 @@ class App extends Component {
     cars: [
       {name: 'Ford', year: 2018},
       {name: 'Audo', year: 2016},
-      {name: 'Ferari', year: 1961}
+      {name: 'Ferrari', year: 1961}
     ],
 
     pageTitle: 'React Components',
@@ -31,15 +31,11 @@ class App extends Component {
   }
 
   onChangeName = (name, index) => {
-    const car = [...this.state.cars[index]]
+    const car = this.state.cars[index]
     car.name = name
     const cars = [...this.state.cars]
     
-    
-    
-    this.setState({
-      cars
-    })
+    this.setState({cars})
     
   }
 
@@ -48,11 +44,7 @@ class App extends Component {
     const cars = [...this.state.cars]
     cars.splice(index, 1)
 
-    this.setState({
-
-      cars
-
-    })
+    this.setState({cars})
   }
   
 
@@ -84,7 +76,15 @@ class App extends Component {
        
         <button onClick={this.toggleCarsHandler}>Toggle Cars</button>
 
-        {cars}
+        <div style={{
+          width: '400px',
+          margin: "auto",
+          paddingTop: '20px'
+          
+        }}>
+         {cars}
+        </div>
+        
 
         {/* <Car name={cars[0].name} 
              year={cars[0].year} 
